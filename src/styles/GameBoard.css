@@ -1,0 +1,448 @@
+/* تصميم الصفحة الرئيسية */
+.game-board-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  background-color: #f9f3e9;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Tajawal', sans-serif;
+}
+
+/* رأس الصفحة */
+.game-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 0;
+  background-color: #f9f3e9;
+}
+
+.game-title {
+  font-size: 32px;
+  color: #5a3e2b;
+  margin: 0 0 15px 0;
+  font-weight: bold;
+}
+
+.remaining-questions-counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.questions-count {
+  font-size: 36px;
+  font-weight: bold;
+  color: #5a3e2b;
+}
+
+.questions-label {
+  font-size: 18px;
+  color: #8a7e6b;
+}
+
+/* شريط النقاط */
+.game-scores-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  margin: 0 20px;
+}
+
+.team-score-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 25px;
+  border-radius: 10px;
+  background-color: #f0e6d2;
+  min-width: 120px;
+  transition: all 0.3s ease;
+}
+
+.team-label {
+  font-size: 20px;
+  font-weight: bold;
+  color: #5a3e2b;
+  margin-bottom: 5px;
+}
+
+.score-value {
+  font-size: 32px;
+  font-weight: bold;
+  color: #5a3e2b;
+}
+
+.team-score-box.active-team {
+  background-color: #e6a157;
+}
+
+.team-score-box.active-team .team-label,
+.team-score-box.active-team .score-value {
+  color: #fff;
+}
+
+.turn-indicator {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.turn-badge {
+  background-color: #e74c3c;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* محتوى اللعبة */
+.game-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* حاوية الفئات */
+.categories-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+/* كتلة الفئة */
+.category-block {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* رأس الفئة */
+.category-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #f0e6d2;
+}
+
+.category-icon {
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0e6d2;
+  border-radius: 50%;
+}
+
+.category-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #5a3e2b;
+  margin: 0;
+}
+
+/* صف الصعوبة */
+.difficulty-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.difficulty-label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #5a3e2b;
+  background-color: #f0e6d2;
+  padding: 5px 10px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+/* زوج الأسئلة */
+.questions-pair {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+/* زر السؤال */
+.question-button {
+  flex: 1;
+  height: 60px;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.question-button:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.question-button:active:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.question-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.question-content {
+  text-align: center;
+}
+
+.question-number {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+/* ألوان مستويات الصعوبة */
+.difficulty-200 {
+  background-color: #7fb069;
+}
+
+.difficulty-400 {
+  background-color: #e6a157;
+}
+
+.difficulty-600 {
+  background-color: #d66853;
+}
+
+.answered {
+  background-color: #8a7e6b !important;
+}
+
+.answered-mark {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 16px;
+  color: white;
+}
+
+/* نافذة نهاية اللعبة */
+.game-end-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.game-end-message {
+  background-color: #f9f3e9;
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  max-width: 500px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.game-end-message h2 {
+  color: #5a3e2b;
+  margin-top: 0;
+  font-size: 28px;
+}
+
+.game-end-message p {
+  font-size: 18px;
+  margin-bottom: 25px;
+  color: #8a7e6b;
+}
+
+/* تحسينات للتجاوب مع الشاشات المختلفة */
+@media (max-width: 768px) {
+  .game-title {
+    font-size: 28px;
+  }
+  
+  .questions-count {
+    font-size: 30px;
+  }
+  
+  .questions-label {
+    font-size: 16px;
+  }
+  
+  .team-score-box {
+    padding: 10px 15px;
+    min-width: 100px;
+  }
+  
+  .team-label {
+    font-size: 16px;
+  }
+  
+  .score-value {
+    font-size: 26px;
+  }
+  
+  .turn-badge {
+    padding: 6px 15px;
+    font-size: 14px;
+  }
+  
+  .categories-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .category-title {
+    font-size: 18px;
+  }
+  
+  .difficulty-label {
+    font-size: 14px;
+  }
+  
+  .question-button {
+    height: 50px;
+    font-size: 16px;
+  }
+  
+  .question-number {
+    font-size: 18px;
+  }
+  
+  .game-end-message {
+    padding: 25px;
+    max-width: 90%;
+  }
+  
+  .game-end-message h2 {
+    font-size: 22px;
+  }
+  
+  .game-end-message p {
+    font-size: 16px;
+  }
+}
+
+/* تحسينات للوضع الأفقي */
+@media (orientation: landscape) and (max-width: 900px) {
+  .game-content {
+    padding: 10px;
+  }
+  
+  .categories-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .category-block {
+    padding: 10px;
+  }
+  
+  .category-header {
+    padding-bottom: 5px;
+  }
+  
+  .category-icon {
+    font-size: 20px;
+    width: 30px;
+    height: 30px;
+  }
+  
+  .category-title {
+    font-size: 16px;
+  }
+  
+  .difficulty-label {
+    font-size: 12px;
+    padding: 3px 6px;
+  }
+  
+  .question-button {
+    height: 40px;
+  }
+  
+  .question-number {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .game-content {
+    padding: 15px 10px;
+  }
+  
+  .game-scores-bar {
+    padding: 10px;
+    margin: 0 10px;
+  }
+  
+  .team-score-box {
+    padding: 8px 12px;
+    min-width: 80px;
+  }
+  
+  .team-label {
+    font-size: 14px;
+  }
+  
+  .score-value {
+    font-size: 22px;
+  }
+  
+  .category-block {
+    padding: 10px;
+  }
+  
+  .category-icon {
+    font-size: 20px;
+    width: 30px;
+    height: 30px;
+  }
+  
+  .category-title {
+    font-size: 16px;
+  }
+  
+  .difficulty-label {
+    font-size: 12px;
+  }
+  
+  .question-button {
+    height: 45px;
+    font-size: 14px;
+  }
+  
+  .question-number {
+    font-size: 16px;
+  }
+}
